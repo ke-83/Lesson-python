@@ -1,0 +1,19 @@
+max_value=min_value=None
+sum_score=0
+
+for i in range(5): 
+    score=int(input("点数を5人分入力してください"))
+
+    if max_value is None or score > max_value:
+        max_value=score
+    
+    if min_value is None or score < min_value:
+        min_value=score
+
+    sum_score += score
+
+avg_score=float(sum_score/5)
+
+print(f"最高得点は{max_value}です")
+print(f"最低得点は{min_value}です")
+print(f"五人の平均点は{avg_score}です")

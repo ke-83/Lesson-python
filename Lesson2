@@ -1,0 +1,16 @@
+scores=[]
+sum_score=0
+
+for i in range(5): 
+    score=int(input("点数を5人分入力してください"))
+    scores.append(score)
+
+max_value=max(scores)
+min_value=min(scores)
+sum_score=sum(scores)
+avg_score=sum_score/len(scores)
+
+print(f"最高得点は{max_value}です")
+print(f"最低得点は{min_value}です")
+print(f"合計は{sum_score}です")
+print(f"平均点は{avg_score}です")

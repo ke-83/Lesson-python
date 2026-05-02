@@ -1,0 +1,11 @@
+scores=[]
+for _ in range(5):
+    score=int(input("5人分の点数を入力してください．"))
+    scores.append(score)
+
+for i in range(len(scores)):
+    print(f"{i+1}人目:{scores[i]}点",end="")
+    if scores[i] >= 70:
+        print(" → 合格")
+    else:
+        print(" → 不合格")

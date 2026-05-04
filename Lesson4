@@ -2,10 +2,11 @@ scores=[]
 def judge(score):
     scores.append(score)
     if score>=70:
-        print("合格")
+        print(" → 合格")
     else:
-        print("不合格")
+        print(" → 不合格")
 
 for i in range(5):
-    score=int(input(f"5人分の点数を入力してください {len(scores)+1}人目"))
+    score=int(input("\n5人の点数を入力してください"))
+    print(f"{len(scores)+1}人目:{score}点",end="")
     judge(score)

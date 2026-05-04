@@ -1,12 +1,29 @@
 scores=[]
+passed=[]
+failed=[]
+
 def judge(score):
     scores.append(score)
-    if score>=70:
+    if score>=60:
         print(" → 合格")
+        passed.append(score)
     else:
         print(" → 不合格")
+        failed.append(score)
 
 for i in range(5):
     score=int(input("\n5人の点数を入力してください"))
     print(f"{len(scores)+1}人目:{score}点",end="")
     judge(score)
+
+sum_score=sum(scores)
+avg_score=sum_score/len(scores)
+
+print(f"\n平均点:{avg_score:.2f}点")
+print(f"\n合格者:{len(passed)}人")
+print(f"不合格者:{len(failed)}人")
+
+if len(passed) >= 3:
+    print("\nクラスは優秀")
+else:
+    print("\nまだ改善の余地あり")

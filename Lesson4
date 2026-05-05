@@ -2,6 +2,8 @@ scores=[]
 passed=[]
 failed=[]
 
+answer=int(input("何人分の点数を入力しますか？"))
+
 def judge(score):
     scores.append(score)
     if score>=60:
@@ -11,10 +13,16 @@ def judge(score):
         print(" → 不合格")
         failed.append(score)
 
-for i in range(5):
-    score=int(input("\n5人の点数を入力してください"))
-    print(f"{len(scores)+1}人目:{score}点",end="")
-    judge(score)
+while True:
+    score=int(input("点数を入力してください (0～100点)"))
+
+    if 1 <= score <= 100:
+        judge(score)
+        if answer == len(scores):
+            break
+    else:
+        print("もう一度入力してください")
+        continue
 
 sum_score=sum(scores)
 avg_score=sum_score/len(scores)

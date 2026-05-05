@@ -1,0 +1,43 @@
+passed=[]
+failed=[]
+
+answer=int(input("何人分の点数を入力しますか？"))
+
+def judge(score):
+    if score>=60:
+        print(" → 合格")
+        passed.append(score)
+    else:
+        print(" → 不合格")
+        failed.append(score)
+
+for i in range(answer):
+    while True:
+        try:
+            score=int(input(f"{i+1}人目:点数を入力してください"))
+        except ValueError:
+            print("数字で入力してください")
+            continue
+            
+        if 0 <= score <= 100:
+            judge(score)
+            break
+        else:
+            print("0～100で入力してください")
+            continue
+
+passed_sum_score=sum(passed)
+failed_sum_score=sum(failed)
+passed_avg_score=passed_sum_score/len(passed)
+failed_avg_score=failed_sum_score/len(failed)
+
+print(f"\n合格者平均点:{passed_avg_score:.2f}点")
+print(f"不合格平均点:{failed_avg_score:.2f}点")
+
+print(f"\n合格者:{len(passed)}人")
+print(f"不合格者:{len(failed)}人")
+
+if len(passed) >= 3 and passed_avg_score >= 75:
+    print("\nクラスは優秀")
+else:
+    print("\nまだ改善の余地あり")

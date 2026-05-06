@@ -1,0 +1,8 @@
+scores=[] 
+
+with open("scores.csv","r") as f:
+    for line in f:
+        score=int(line.strip())
+        scores.append(score)
+
+print(scores)

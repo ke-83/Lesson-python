@@ -1,0 +1,22 @@
+all_people=[]
+people_count=int(input("何人入力しますか"))
+    
+def judge(score): 
+    if score >= 60:
+        person["result"]="合格"
+    else:
+        person["result"]="不合格"
+
+for i in range(people_count):
+    person={}
+    name=str(input(f"{i+1}人目:名前を入力してください"))
+    person["name"]=name
+    score=int(input(f"{i+1}人目:点数を入力してください"))
+    person["score"]=score
+    judge(score)
+
+    all_people.append(person)
+
+print("\n---結果---")
+for p in all_people:
+    print(f"{p["name"]}：{p["score"]}点 → {p["result"]}")

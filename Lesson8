@@ -1,0 +1,47 @@
+scores=[]
+get_scores=[]
+passed=[]
+failed=[]
+
+def judge(score):
+    if score >= 60:
+        passed.append(score)
+        return "合格"
+    else:
+        failed.append(score)
+        return "不合格"
+
+for i in range(3):
+    person={}       
+    name=str(input(f"{i+1}人目：\n名前を入力してください"))
+    person["name"]=name
+    
+    while True:      
+        try:
+            score=int(input("点数を入力してください"))
+        except ValueError:
+            print("数字を入力してください")
+            continue
+
+        if 0 <= score <= 100:
+            person["score"]=score
+            break
+        else:
+            print("0～100を入力してください")
+            continue
+
+    person["result"]=judge(score)
+    
+    scores.append(person)
+    get_scores.append(person["score"])
+
+sum_score=sum(get_scores)
+avg_score=sum_score/len(scores)
+
+print()
+for person in scores:
+    print(f"{person['name']}：{person['score']}点 → {person['result']}")
+
+print(f"\n合格者数：{len(passed)}")
+print(f"不合格者数：{len(failed)}")
+print(f"平均点：{avg_score}点")

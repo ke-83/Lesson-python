@@ -1,0 +1,64 @@
+class Shopping:
+    products = {}
+    max_count = 5
+    
+    def __init__(self,add,delete,getList,getName,finisf):
+        self.add = add
+        self.delete = delete
+        self.getList = getList
+        self.getName = getName
+        self.finish = finish
+
+    def add():    
+        if len(products) <= max_count:
+            product = str(input("商品を入力"))
+            value = int(input("値段を入力"))
+            number = int(input("個数を入力"))
+            products[product] = (value , number)
+    else:
+        print("空きがありません")
+        
+    def delete():
+        name = str(input("商品名"))
+        if name in products:
+            del products[name]
+        else:
+            print("該当する商品がありません")
+            
+    def getList():
+        print("商品一覧:")
+        for name, data in products.items():
+            print(f"商品名:{name} 値段:{data[0]} 個数:{data[1]}")
+
+    def getName():
+        name = str(input("商品名"))
+        if name in products:
+            print(f"商品名:{name} 値段:{products[name][0]} 個数:{products[name][1]}")
+        else:
+            print("該当する商品がありません")
+            return None
+
+    def finish():
+        print("終わります")
+
+while True:
+    choice = int(input("1:追加 2:削除 3:一覧表示 4:検索 5:終了"))
+    
+    if choice == 1:
+        add()  
+
+    elif choice == 2:
+        delete()
+
+    elif choice == 3:
+        getList()
+
+    elif choice ==4:
+        getName()
+
+    elif choice == 5:
+        finish()
+        break
+
+    else:
+        print("該当する数字を入力してください")
